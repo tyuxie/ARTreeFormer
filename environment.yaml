@@ -1,0 +1,19 @@
+name: artreeformer
+channels:
+  - bioconda
+  - pytorch
+  - conda-forge
+dependencies:
+  - biopython=1.83
+  - bitarray=2.9
+  - ete3=3.1
+  - matplotlib=3.5
+  - omegaconf=2.3
+  - python=3.10
+  - pip=23.3.1
+  - pytorch=2.1
+  - tensorboard=2.15
+  - tqdm=4.65
+  - psutil=5.9
+  - pip:
+    - ema-pytorch==0.3

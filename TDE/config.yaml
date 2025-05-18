@@ -1,0 +1,33 @@
+base:
+  mode: train
+  date: 2024-05-01
+  workdir: results
+  seed: 2022
+  
+data:
+  dataset: DS1
+  repo: 1
+  empFreq: False
+
+model:
+  tree_type: transformer
+  transformer:
+    hidden_dim: 100
+    n_head: 4
+
+optimizer:
+  type: adam
+  batch_size: 10
+  maxiter: 200000
+  clip_grad: False
+  clip_value: 100
+  test_freq: 1000
+  kl_freq: 5000
+  save_freq: 50000
+  stepsz: 0.0001
+  anneal_freq: 20000
+  anneal_rate: 0.75
+  ema_beta: 0.9995
+  ema_update_every: 1
+  ema_update_after_step: 1000
+  report_time: False

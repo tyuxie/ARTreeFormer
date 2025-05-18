@@ -1,0 +1,41 @@
+base:
+  mode: train
+  date: None
+  workdir: results
+  seed: 42
+  resume_from_iter: 0
+
+data:
+  dataset: DS1
+  empFreq: False
+  data_path: '../data/hohna_datasets_fasta/'
+
+
+tree:
+  tree_type: transformer
+  transformer:
+    hidden_dim: 100
+    n_head: 4
+    
+objective:
+  loss_type: vimco
+  n_particles: 10
+
+optimizer:
+  type: adam
+  maxiter: 400000
+  eps_period: 50000
+  eps_max: 0.0
+  warm_start_interval: 100000
+  init_inverse_temp: 0.001
+  clip_grad: False
+  clip_value: 5000
+  test_freq: 1000
+  lb_test_freq: 5000
+  save_freq: 50000
+  report_time: False
+  tree:
+    stepsz: 0.0001
+    anneal_freq: 20000
+    anneal_freq_warm: 20000
+    anneal_rate: 0.75

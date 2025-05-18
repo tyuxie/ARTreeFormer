@@ -1,0 +1,100 @@
+base:
+  mode: train
+  date: None
+  workdir: results
+  seed: 42
+  resume_from_iter: 0
+
+data:
+  dataset: DS1
+  empFreq: False
+  data_path: '../data/hohna_datasets_fasta/'
+
+
+tree:
+  tree_type: transformer
+  transformer:
+    hidden_dim: 100
+    n_head: 4
+  
+branch:
+  branch_type: gnn
+  gnn:
+    gnn_type: edge
+    hidden_dim: 100
+    num_layers: 2
+    aggr: sum
+    project: False
+    bias: True
+    
+objective:
+  loss_type: vimco
+  n_particles: 10
+
+optimizer:
+  type: adam
+  maxiter: 400000
+  eps_period: 50000
+  eps_max: 0.0
+  warm_start_interval: 100000
+  init_inverse_temp: 0.001
+  clip_grad: False
+  clip_value: 5000
+  test_freq: 1000
+  lb_test_freq: 5000
+  save_freq: 50000
+  report_time: False
+  tree:
+    stepsz: 0.0001
+    anneal_freq: 20000
+    anneal_freq_warm: 20000
+    anneal_rate: 0.75
+  branch:
+    stepsz: 0.001
+    anneal_freq: 20000
+    anneal_freq_warm: 20000
+    anneal_rate: 0.75
+  
+    # ######### Data arguments
+    # parser.add_argument('--dataset', default='DS1', help=' DS1 | DS2 | DS3 | DS4 | DS5 | DS6 | DS7 | DS8 ')
+    # parser.add_argument('--empFreq', default=False, action='store_true', help='emprical frequence for KL computation') 
+    # ######### Model arguments
+    # parser.add_argument('--nf', type=int, default=2, help=' branch length feature embedding dimension')
+    # parser.add_argument('--hdimTree', type=int, default=100, help='hidden dimension for node embedding net')
+    # parser.add_argument('--hdimBranch', type=int, default=100, help='hidden dimension for node embedding net')
+    # parser.add_argument('--hLBranch',  type=int, default=2, help='number of hidden layers for node embedding net of branch model')
+    # parser.add_argument('--gnn_type', type=str, default='edge', help='gcn | sage | gin | ggnn')
+    # parser.add_argument('--edge_aggr', type=str, default='max')
+    # parser.add_argument('--aggr', type=str, default='sum', help='sum | mean | max')
+    # parser.add_argument('--nheads', default=4, type=int)
+    # parser.add_argument('--proj', default=False, action='store_true', help='use projection first in SAGEConv')
+    # ######### Optimizer arguments
+    # parser.add_argument('--stepszTree', type=float, default=0.0001, help=' step size for tree topology parameters ')
+    # parser.add_argument('--stepszBranch', type=float, default=0.001, help=' stepsz for branch length parameters ')
+    # parser.add_argument('--maxIter', type=int, default=400000, help=' number of iterations for training, default=400000')
+    # parser.add_argument('--invT0', type=float, default=0.001, help=' initial inverse temperature for annealing schedule, default=0.001')
+    # parser.add_argument('--nwarmStart', type=int, default=100000, help=' number of warm start iterations, default=100000')
+    # parser.add_argument('--nParticle', type=int, default=10, help='number of particles for variational objectives, default=10')
+    # parser.add_argument('--arTree', type=float, default=0.75, help='step size anneal rate, default=0.75')
+    # parser.add_argument('--arBranch', type=float, default=0.75, help='step size anneal rate, default=0.75')
+    # parser.add_argument('--afTreewarm', type=int, default=20000)
+    # parser.add_argument('--afBranchwarm', type=int, default=20000)
+    # parser.add_argument('--afTree', type=int, default=20000, help='step size anneal frequency, default=20000')
+    # parser.add_argument('--afBranch', type=int, default=20000)
+    # parser.add_argument('--tf', type=int, default=1000, help='monitor frequency during training, default=1000')
+    # parser.add_argument('--lbf', type=int, default=5000, help='lower bound test frequency, default=5000')
+    # parser.add_argument('--sf', type=int, default=50000, help='Frequency of saving model')
+    # parser.add_argument('--gradMethod', type=str, default='vimco', help=' vimco | rws ')
+    # parser.add_argument('--clip_grad', default=False, action='store_true')
+    # parser.add_argument('--clip_value', type=float, default=500.0)
+
+    # parser.add_argument('--eps_max', default=0.0, type=float)
+    # parser.add_argument('--eps_period', default=20000, type=int)
+
+    # parser.add_argument('--workdir', default='results', type=str)
+    # parser.add_argument('--date', default='2023-03-16', type=str)
+    # parser.add_argument('--eval', default=False, action='store_true')
+
+    # args = parser.parse_args()
+
+    # return args
