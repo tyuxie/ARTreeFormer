@@ -1,7 +1,7 @@
 ### <div align="center"> ARTreeFormer: A Faster Attention-based Autoregressive Model for Phylogenetic Inference <div> 
 
 <div align="center">
-  <a href="https://arxiv.org"><img src="https://img.shields.io/static/v1?label=Paper&message=arXiv&color=red&logo=arxiv"></a> &ensp;
+  <a href="https://arxiv.org/abs/2507.18380"><img src="https://img.shields.io/static/v1?label=Paper&message=arXiv&color=red&logo=arxiv"></a> &ensp;
   <img src="https://img.shields.io/badge/License-MIT-yellow.svg"></a> &ensp;
 </div>
 
@@ -83,3 +83,11 @@ python main.py data.dataset=$DATASET base.mode=test data.empFreq=True
 
 ## Reference
 Please consider citing our work if you find this codebase useful.
+```
+@article{xie2025artreeformer,
+  title={ARTreeFormer: A Faster Attention-based Autoregressive Model for Phylogenetic Inference},
+  author={Xie, Tianyu and Mao, Yicong and Zhang, Cheng},
+  journal={arXiv preprint arXiv:2507.18380},
+  year={2025}
+}
+```
